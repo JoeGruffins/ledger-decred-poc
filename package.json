@@ -1,0 +1,38 @@
+{
+  "name": "demo-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "NODE_NO_WARNINGS=1 babel-node index.js"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "@grpc/grpc-js": "^1.8.12",
+    "@ledgerhq/hw-app-btc": "^10.0.0",
+    "@ledgerhq/hw-transport": "^6.28.1",
+    "@ledgerhq/hw-transport-node-hid-singleton": "^6.28.9",
+    "@ledgerhq/live-common": "28.0.2-hotfix.0",
+    "@ledgerhq/logs": "^6.10.1",
+    "babel-node": "^0.0.1-security",
+    "babel-preset-env": "^1.7.0",
+    "blake-hash": "^2.0.0",
+    "blessed": "^0.1.81",
+    "bs58": "^5.0.0",
+    "fs": "^0.0.1-security",
+    "google-protobuf": "^3.5.0",
+    "grpc": "^1.24.11",
+    "grpc-tools": "^1.12.4",
+    "react": "^18.2.0",
+    "secp256k1": "^5.0.0",
+    "typedarray-to-buffer": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@babel/node": "^7.20.7",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-react": "7.31.11",
+    "eslint-plugin-react-hooks": "4.6.0"
+  }
+}
