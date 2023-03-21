@@ -12,11 +12,19 @@ The following programs:
   - Npm: 6.4+
   - Yarn: 1.12+
   - Dcrwallet: 1.7.5
+  - [gencerts](https://github.com/decred/dcrd/tree/master/cmd/gencerts)
 
 You also need a working ledger with the ledger decred testnet app installed. Install the app through ledger live after turning on "Developer mode" in the "Experimental features" tab.
 
 
 ## Running
+Before starting, ensure your udev rules allow communication with the ledger. My rules look like the following, note that multiple product ids are necessary:
+```
+# Ledger Nano X
+SUBSYSTEM=="usb", ATTR{idVendor}=="2c97", ATTR{idProduct}=="0004|4000|4001|4002|4003|4004|4005|4006|4007|4008|4009|400a|400b|400c|400d|400e|400f|4010|4011|4012|4013|4014|4015|4016|4017|4018|4019|401a|401b|401c|401d|401e|401f", MODE="0660", GROUP="plugdev", TAG+="uaccess", TAG+="udev-acl", SYMLINK+="ledger%n"
+KERNEL=="hidraw*", ATTRS{idVendor}=="2c97", ATTRS{idProduct}=="0004|4000|4001|4002|4003|4004|4005|4006|4007|4008|4009|400a|400b|400c|400d|400e|400f|4010|4011|4012|4013|4014|4015|4016|4017|4018|4019|401a|401b|401c|401d|401e|401f", MODE="0660", GROUP="plugdev", TAG+="uaccess", TAG+="udev-acl"
+```
+
 In the root directory:
 ```
 yarn install
@@ -31,7 +39,7 @@ dcrwallet --testnet --createwatchingonly
 ```
 Enter the pubkey when propted.
 
-You will need to set up grpc certificates. Install [gencerts](https://github.com/decred/dcrd/tree/master/cmd/gencerts). Now go to your dcrwallet directory, for example `~/.dcrwallet`, and do:
+You will need to set up grpc certificates. Now go to your dcrwallet directory, for example `~/.dcrwallet`, and do:
 ```
 gencerts clients.pem clients.key
 ```
